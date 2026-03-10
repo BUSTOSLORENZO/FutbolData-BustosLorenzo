@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Buscar jugador, club o liga</h2>
+
+<form action="/resultado/" method="GET">
+
+<input type="text" name="nombre" placeholder="Buscar jugador, club o liga">
+
+<button type="submit">Buscar</button>
+
+</form>
+
+{% endblock %}

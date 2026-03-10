@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Resultados de búsqueda</h2>
+
+<h3>Jugadores</h3>
+
+<ul>
+{% for jugador in jugadores %}
+<li>{{ jugador.nombre }} - {{ jugador.posicion }}</li>
+{% empty %}
+<p>No se encontraron jugadores.</p>
+{% endfor %}
+</ul>
+
+
+<h3>Clubes</h3>
+
+<ul>
+{% for club in clubes %}
+<li>{{ club.nombre }} - {{ club.ciudad }}</li>
+{% empty %}
+<p>No se encontraron clubes.</p>
+{% endfor %}
+</ul>
+
+
+<h3>Ligas</h3>
+
+<ul>
+{% for liga in ligas %}
+<li>{{ liga.nombre }} - {{ liga.pais }}</li>
+{% empty %}
+<p>No se encontraron ligas.</p>
+{% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Football Data</title>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Football Data</h1>
+
+<nav>
+
+<a href="/">Inicio</a>
+<a href="/jugadores/">Jugadores</a>
+<a href="/clubes/">Clubes</a>
+<a href="/ligas/">Ligas</a>
+<a href="/buscar/">Buscar</a>
+<a href="/about/">About</a>
+
+</nav>
+
+</header>
+
+<main>
+
+{% block content %}
+
+{% endblock %}
+
+</main>
+
+<footer>
+
+<p>Lorenzo Bustos</p>
+<p>Tel: +54 11 39506007</p>
+<p>Email: bustoslorenzo06@gmail.com</p>
+
+</footer>
+
+</body>
+</html>

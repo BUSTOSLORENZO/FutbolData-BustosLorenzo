@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Clubes</h2>
+
+<a href="/clubes/crear/">Agregar club</a>
+
+<ul>
+{% for club in object_list %}
+
+<li>
+{{ club.nombre }} - {{ club.ciudad }}
+
+<a href="/clubes/editar/{{ club.id }}/">Editar</a>
+<a href="/clubes/eliminar/{{ club.id }}/">Eliminar</a>
+
+</li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}

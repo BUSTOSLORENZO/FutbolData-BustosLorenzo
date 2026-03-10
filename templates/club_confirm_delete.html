@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Eliminar club</h2>
+
+<p>¿Seguro que querés eliminar este club?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar eliminación</button>
+</form>
+
+{% endblock %}

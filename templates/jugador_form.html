@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Formulario Jugador</h2>
+
+<form method="post">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+
+    <button type="submit">Guardar</button>
+</form>
+
+<br>
+
+<a href="/jugadores/">Volver a jugadores</a>
+
+{% endblock %}

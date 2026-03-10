@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Ligas</h2>
+
+<a href="/ligas/crear/">Agregar liga</a>
+
+<ul>
+{% for liga in object_list %}
+
+<li>
+{{ liga.nombre }} - {{ liga.pais }} - {{ liga.temporada }}
+
+<a href="/ligas/editar/{{ liga.id }}/">Editar</a>
+<a href="/ligas/eliminar/{{ liga.id }}/">Eliminar</a>
+
+</li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Jugadores</h2>
+
+<a href="/jugadores/crear/">Agregar jugador</a>
+
+<ul>
+{% for jugador in object_list %}
+
+<li>
+{{ jugador.nombre }} - {{ jugador.posicion }} - {{ jugador.edad }}
+
+<a href="/jugadores/editar/{{ jugador.id }}/">Editar</a>
+<a href="/jugadores/eliminar/{{ jugador.id }}/">Eliminar</a>
+
+</li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}
