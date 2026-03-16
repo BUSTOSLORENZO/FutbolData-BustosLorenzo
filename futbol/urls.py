@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from futbol.views import register
 
 urlpatterns = [
 
@@ -25,5 +26,6 @@ path("resultado/",views.resultado_busqueda),
 
 path("register/",views.register),
 path("about/",views.about),
+path('register/', register, name="register"),
 
 ]

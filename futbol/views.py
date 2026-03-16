@@ -4,13 +4,15 @@ from django.urls import reverse_lazy
 from .models import Liga, Club, Jugador
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 def index(request):
 
     return render(request,"index.html")
 
 
-class LigaList(ListView):
+class LigaList(LoginRequiredMixin, ListView):
     model = Liga
     template_name = "ligas.html"
 
@@ -35,7 +37,7 @@ class LigaDelete(DeleteView):
     success_url = "/ligas/"
 
 
-class ClubList(ListView):
+class ClubList(LoginRequiredMixin ,ListView):
     model = Club
     template_name = "clubes.html"
 
@@ -60,7 +62,7 @@ class ClubDelete(DeleteView):
     success_url = "/clubes/"
 
 
-class JugadorList(ListView):
+class JugadorList(LoginRequiredMixin ,ListView):
     model = Jugador
     template_name = "jugadores.html"
 
@@ -84,7 +86,7 @@ class JugadorDelete(DeleteView):
     template_name = "jugador_confirm_delete.html"
     success_url = "/jugadores/"
 
-
+@login_required
 def buscar_jugador(request):
 
     return render(request,"buscar.html")
@@ -126,3 +128,18 @@ def register(request):
 def about(request):
 
     return render(request,"about.html")
+
+def register(request):
+
+    if request.method == "POST":
+
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("/login/")
+
+    else:
+        form = UserCreationForm()
+
+    return render(request, "register.html", {"form": form})
